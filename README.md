@@ -1,0 +1,1 @@
+A mini-game demonstrating Inter Processus Communication, signaling processes and shared memory manipulation using a global 'pthread_mutex_t'. Each process is a wizard with its' unique PID and 2 teams are made based on a custom logic. Only 1 wizard/process wins!

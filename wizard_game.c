@@ -147,6 +147,7 @@ void createXmagicians(int num_wizards){
             unmaskSignal(SIGUSR1,&sigset);
             unmaskSignal(SIGINT,&sigset);
             signal(SIGUSR1, wizard_routine);
+            signal(SIGINT, exit);
             while (1) {
                 pause();
             }
@@ -186,6 +187,7 @@ void initializeTeams() {
 void main_routine(int sig) {
     if(sig == SIGUSR2){
         if(*wizards_left <= 0){
+            kill_all_processes(SIGQUIT);
             printf("Game over!\nTerminating main process...\n");
             exit(EXIT_SUCCESS);
         }
